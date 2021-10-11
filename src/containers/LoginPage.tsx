@@ -1,9 +1,10 @@
 import React, {useEffect, useState} from 'react';
 import {useDispatch, useSelector} from 'react-redux';
-import {withRouter} from 'react-router-dom';
+import {RouteComponentProps, withRouter} from 'react-router-dom';
 import styled from 'styled-components';
 
-import {authenticate} from 'src/store/actions/auth';
+import {useAppDispatch, useAppSelector} from '../app/hooks';
+import {ActionTypes} from '../store/constants';
 
 const Wrapper = styled.div`
   height: 100%;
@@ -28,32 +29,34 @@ const LogoStyled = styled.img`
   margin-bottom: 20px;
 `;
 
-function LoginPage({history}) {
-  const dispatch = useDispatch();
+const LoginPage: React.FunctionComponent<RouteComponentProps> = ({history}) => {
+  const dispatch = useAppDispatch();
   const [login, setLogin] = useState('');
   const [sublogin, setSubLogin] = useState('');
   const [password, setPassword] = useState('');
-  const loading = useSelector((state) => state.auth.loading);
-  const isLoggedIn = useSelector((state) => !!state.auth.sessionKey?.length);
+
+  const {loading, sessionKey} = useAppSelector((state) => state.auth);
+
   console.log('loading', loading);
 
   useEffect(() => {
-    if (isLoggedIn) {
+    if (sessionKey) {
       history.push('/console');
     }
-  }, [isLoggedIn]);
+  }, [sessionKey]);
 
   const doLogin = () => {
-    dispatch(
-      authenticate({
+    dispatch({
+      type: ActionTypes.AUTHENTICATE,
+      payload: {
         login,
         sublogin,
         password,
-      })
-    );
+      },
+    });
   };
 
-  function onSubmit(event) {
+  function onSubmit(event: {preventDefault: () => void}) {
     event.preventDefault();
     doLogin();
   }
@@ -61,16 +64,18 @@ function LoginPage({history}) {
   return (
     <Wrapper>
       <LogoStyled src="/icons/logo.svg" alt="" />
-      <Form onSubmit={onSubmit} action="/">
-        <input value={login} onChange={(e) => setLogin(e.target.value)} placeholder="Логин" />
-        <input value={sublogin} onChange={(e) => setSubLogin(e.target.value)} placeholder="Сублогин" />
-        <input value={password} onChange={(e) => setPassword(e.target.value)} placeholder="Сублогин" />
-        <button type="submit" onClick={onSubmit}>
-          Отправить
-        </button>
+      <Form>
+        <form onSubmit={onSubmit} action="">
+          <input value={login} onChange={(e) => setLogin(e.target.value)} placeholder="Логин" />
+          <input value={sublogin} onChange={(e) => setSubLogin(e.target.value)} placeholder="Сублогин" />
+          <input value={password} onChange={(e) => setPassword(e.target.value)} placeholder="Сублогин" />
+          <button type="submit" onClick={onSubmit}>
+            Отправить
+          </button>
+        </form>
       </Form>
     </Wrapper>
   );
-}
+};
 
 export default withRouter(LoginPage);
