@@ -34,8 +34,6 @@ export function* authenticateSaga({payload}) {
       console.log('err', err);
     });
 
-  console.log(error);
-
   if (!error) {
     yield put(
       authenticateSuccess({

@@ -1,12 +1,14 @@
 import {createAction, createSlice, PayloadAction} from '@reduxjs/toolkit';
 import {ActionTypes} from '../../store/constants';
 
-export interface CounterState {
-  value: number;
-  status: 'idle' | 'loading' | 'failed';
+export interface auth {
+  loading: boolean;
+  sessionKey: string | null;
+  login: string | null;
+  sublogin: string | null;
 }
 
-export const initialState = {
+export const initialState: auth = {
   loading: false,
   sessionKey: null,
   login: null,
@@ -18,24 +20,16 @@ export const counterSlice = createSlice({
   initialState,
   reducers: {
     authenticateSuccess: (state, action: PayloadAction<any>) => {
-      console.log(action.payload);
       state.loading = false;
       state.sessionKey = action.payload.sessionKey;
-      state.login = action.payload.login
-      state.sublogin = action.payload.sublogin
+      state.login = action.payload.login;
+      state.sublogin = action.payload.sublogin;
     },
     authenticateFailure: (state) => {
-      console.log('act');
       state.sessionKey = null;
       state.login = null;
       state.sublogin = null;
     },
-  },
-  extraReducers: (builder) => {
-    /*  builder
-   .addCase(authenticate, (state) => {
-        state.loading = true
-      }) */
   },
 });
 

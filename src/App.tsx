@@ -13,7 +13,6 @@ function App() {
           <Switch>
             <Route path="/">
               <LoginPage />
-              <div>Hare Krishna</div>
             </Route>
           </Switch>
         </PersistGate>
