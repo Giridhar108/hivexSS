@@ -1,5 +1,4 @@
-import {createAction, createSlice, PayloadAction} from '@reduxjs/toolkit';
-import {ActionTypes} from '../../store/constants';
+import {createSlice, PayloadAction} from '@reduxjs/toolkit';
 
 export interface auth {
   loading: boolean;

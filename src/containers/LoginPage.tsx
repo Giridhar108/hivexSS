@@ -1,5 +1,4 @@
 import React, {useEffect, useState} from 'react';
-import {useDispatch, useSelector} from 'react-redux';
 import {RouteComponentProps, withRouter} from 'react-router-dom';
 import styled from 'styled-components';
 
@@ -43,7 +42,7 @@ const LoginPage: React.FunctionComponent<RouteComponentProps> = ({history}) => {
     if (sessionKey) {
       history.push('/console');
     }
-  }, [sessionKey]);
+  }, [sessionKey, history]);
 
   const doLogin = () => {
     dispatch({
