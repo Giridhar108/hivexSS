@@ -1,8 +1,8 @@
 import {all, put, call, takeLatest} from 'redux-saga/effects';
 import api from 'src/helpers/sendsay';
 
-import {ActionTypes} from 'src/store/constants';
-import {authenticateSuccess, authenticateFailure} from 'src/store/actions/auth';
+import {authenticateFailure, authenticateSuccess} from '../../features/auth/authSlice';
+import {ActionTypes} from '../constants';
 
 export function* authenticateCheckSaga() {
   try {
@@ -17,6 +17,8 @@ export function* authenticateCheckSaga() {
 }
 
 export function* authenticateSaga({payload}) {
+  console.log(payload);
+  let error = false;
   yield api.sendsay
     .login({
       login: payload.login,
@@ -27,17 +29,24 @@ export function* authenticateSaga({payload}) {
       document.cookie = `sendsay_session=${api.sendsay.session}`;
     })
     .catch((err) => {
+      error = true;
       document.cookie = '';
       console.log('err', err);
     });
 
-  yield put(
-    authenticateSuccess({
-      sessionKey: api.sendsay.session,
-      login: payload.login,
-      sublogin: payload.sublogin,
-    })
-  );
+  console.log(error);
+
+  if (!error) {
+    yield put(
+      authenticateSuccess({
+        sessionKey: api.sendsay.session,
+        login: payload.login,
+        sublogin: payload.sublogin,
+      })
+    );
+  } else {
+    yield put(authenticateFailure());
+  }
 }
 
 export function* logoutSaga() {

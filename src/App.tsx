@@ -2,11 +2,8 @@ import React from 'react';
 import {Provider} from 'react-redux';
 import {PersistGate} from 'redux-persist/integration/react';
 import {BrowserRouter as Router, Switch, Route} from 'react-router-dom';
-
-import createStore from 'src/store';
-import LoginPage from 'src/containers/LoginPage';
-
-const {store, persistor} = createStore();
+import {store, persistor} from './app/store';
+import LoginPage from './containers/LoginPage';
 
 function App() {
   return (
@@ -16,6 +13,7 @@ function App() {
           <Switch>
             <Route path="/">
               <LoginPage />
+              <div>Hare Krishna</div>
             </Route>
           </Switch>
         </PersistGate>
