@@ -22,6 +22,7 @@ import {
   ErrorTitle,
   ErrorText,
   Options,
+  LinkToGithab,
 } from '../style/components/LoginPage';
 
 const LoginPage: React.FunctionComponent<RouteComponentProps> = ({history}) => {
@@ -119,6 +120,9 @@ const LoginPage: React.FunctionComponent<RouteComponentProps> = ({history}) => {
             )}
           </Button>
         </Form>
+        <LinkToGithab href="https://github.com/Giridhar108/hivexSS" target="_blank">
+          @github.com/Giridhar108/hivexSS
+        </LinkToGithab>
       </FormInner>
     </Wrapper>
   );

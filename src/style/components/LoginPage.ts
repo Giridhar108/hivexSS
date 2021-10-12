@@ -1,9 +1,32 @@
-import styled from 'styled-components';
+import styled, {keyframes} from 'styled-components';
 
 interface Props {
   inputColor?: string;
   disabled?: boolean;
 }
+
+const blur = keyframes`
+  from {
+    text-shadow:0px 0px 10px #fff,
+      0px 0px 10px #fff,
+      0px 0px 25px #fff,
+      0px 0px 25px #fff,
+      0px 0px 25px #fff,
+      0px 0px 25px #fff,
+      0px 0px 25px #fff,
+      0px 0px 25px #fff,
+      0px 0px 50px #fff,
+      0px 0px 50px #fff,
+      0px 0px 50px #7B96B8,
+      0px 0px 150px #7B96B8,
+      0px 10px 100px #7B96B8,
+      0px 10px 100px #7B96B8,
+      0px 10px 100px #7B96B8,
+      0px 10px 100px #7B96B8,
+      0px -10px 100px #7B96B8,
+      0px -10px 100px #7B96B8;
+  }
+}`;
 
 export const Wrapper = styled.div`
   height: 100vh;
@@ -161,4 +184,29 @@ export const Options = styled.div`
   font-size: 12px;
   line-height: 20px;
   color: #999999;
+`;
+
+export const LinkToGithab = styled.a`
+  position: absolute;
+  margin-left: auto;
+  margin-right: auto;
+  bottom: -40px;
+  left: 0;
+  right: 0;
+  font-size: 16px;
+  line-height: 20px;
+  text-align: center;
+  color: #999999;
+  cursor: pointer;
+  text-decoration: none;
+  transition: all 0.2s;
+  &:hover {
+    transition: all 0.2s;
+    color: #0055fb;
+  }
+  &:focus {
+    animation: ${blur} 0.9s ease-out infinite;
+    text-shadow: 0px 0px 5px #fff, 0px 0px 7px #fff;
+    outline: none;
+  }
 `;
