@@ -5,6 +5,7 @@ export interface auth {
   sessionKey: string | null;
   login: string | null;
   sublogin: string | null;
+  status: {status?: 'idle'; id?: ''; explain?: ''};
 }
 
 export const initialState: auth = {
@@ -12,26 +13,34 @@ export const initialState: auth = {
   sessionKey: null,
   login: null,
   sublogin: null,
+  status: {status: 'idle'},
 };
 
 export const counterSlice = createSlice({
   name: 'auth',
   initialState,
   reducers: {
+    setLoading: (state) => {
+      state.loading = true;
+    },
     authenticateSuccess: (state, action: PayloadAction<any>) => {
       state.loading = false;
       state.sessionKey = action.payload.sessionKey;
       state.login = action.payload.login;
       state.sublogin = action.payload.sublogin;
+      state.status = {status: 'idle'};
     },
-    authenticateFailure: (state) => {
+    authenticateFailure: (state, action: PayloadAction<any>) => {
+      console.log(action.payload);
+      state.loading = false;
       state.sessionKey = null;
       state.login = null;
       state.sublogin = null;
+      state.status = {id: action.payload.id, explain: action.payload.explain};
     },
   },
 });
 
-export const {authenticateSuccess, authenticateFailure} = counterSlice.actions;
+export const {authenticateSuccess, authenticateFailure, setLoading} = counterSlice.actions;
 
 export default counterSlice.reducer;
