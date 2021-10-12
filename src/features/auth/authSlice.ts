@@ -36,7 +36,10 @@ export const counterSlice = createSlice({
       state.sessionKey = null;
       state.login = null;
       state.sublogin = null;
-      state.status = {id: action.payload.id, explain: action.payload.explain};
+      state.status = {id: action.payload?.id, explain: action.payload?.explain};
+      if (!action.payload?.id) {
+        state.status = {status: 'idle'};
+      }
     },
   },
 });

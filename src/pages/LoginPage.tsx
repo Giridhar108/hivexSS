@@ -60,7 +60,7 @@ const LoginPage: React.FunctionComponent<RouteComponentProps> = ({history}) => {
   return (
     <Wrapper>
       <FormInner>
-        <LogoStyled src="/icons/logo.svg" alt="" />
+        <LogoStyled src="/icons/logo.svg" alt="logo" />
         <Title>API-консолька</Title>
         {status.status !== 'idle' ? (
           <ErrorEnter>
