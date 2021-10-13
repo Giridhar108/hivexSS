@@ -2,7 +2,7 @@ import {all, put, call, takeLatest} from 'redux-saga/effects';
 import api from 'src/helpers/sendsay';
 
 import {authenticateFailure, authenticateSuccess, setLoading} from '../../features/auth/authSlice';
-import {ActionTypes} from '../constants';
+import {ActionTypes} from '../../constants';
 
 export function* authenticateCheckSaga() {
   try {

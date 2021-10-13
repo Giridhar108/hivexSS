@@ -1,8 +1,9 @@
 import React from 'react';
 import {useAppDispatch} from '../app/hooks';
 import useOpenFullScreen from '../hooks/useOpenFullScreen';
-import {ActionTypes} from '../store/constants';
+import {ActionTypes} from '../constants';
 import {FullScreen, HeaderConsole, Logo, Logout, Sides, Title, UserInfo} from '../style/components/HeaderConsole';
+import {CONSOLE_EXIT, APPLICATION_NAME} from '../constants/variables';
 
 function Header() {
   const dispatch = useAppDispatch();
@@ -19,14 +20,14 @@ function Header() {
     <HeaderConsole>
       <Sides>
         <Logo src="/icons/logo.svg"></Logo>
-        <Title>API-консолька</Title>
+        <Title>{APPLICATION_NAME}</Title>
       </Sides>
       <Sides>
         <UserInfo>
           some@email.com <span>:</span> sublogin
         </UserInfo>
         <Logout onClick={handleLogout}>
-          <span>Выйти</span>
+          <span>{CONSOLE_EXIT}</span>
           <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
             <g opacity="0.8">
               <path

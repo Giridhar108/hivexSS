@@ -5,7 +5,7 @@ import {validate} from '../helpers/validate';
 import ReactLoading from 'react-loading';
 
 import {useAppDispatch, useAppSelector} from '../app/hooks';
-import {ActionTypes} from '../store/constants';
+import {ActionTypes} from '../constants';
 import {
   FormInner,
   Iput,
@@ -24,6 +24,15 @@ import {
   Options,
   LinkToGithab,
 } from '../style/components/LoginPage';
+import {
+  LOGIN_PAGE_DESCRIPTION_INPUT,
+  LOGIN_PAGE_ERROR,
+  LOGIN_PAGE_LINKTOGITHAB,
+  LOGIN_PAGE_LOGIN,
+  LOGIN_PAGE_PASSWORD,
+  LOGIN_PAGE_SUBLOGIN,
+  APPLICATION_NAME,
+} from '../constants/variables';
 
 const LoginPage: React.FunctionComponent<RouteComponentProps> = ({history}) => {
   const dispatch = useAppDispatch();
@@ -61,16 +70,16 @@ const LoginPage: React.FunctionComponent<RouteComponentProps> = ({history}) => {
     <Wrapper>
       <FormInner>
         <LogoStyled src="/icons/logo.svg" alt="logo" />
-        <Title>API-консолька</Title>
+        <Title>{APPLICATION_NAME}</Title>
         {status.status !== 'idle' ? (
           <ErrorEnter>
-            <ErrorTitle>Вход не вышел</ErrorTitle>
+            <ErrorTitle>{LOGIN_PAGE_ERROR}</ErrorTitle>
             <ErrorText>{`{id: "${status?.id}", explain: "${status?.explain}"}`}</ErrorText>
           </ErrorEnter>
         ) : null}
         <Form onSubmit={formik.handleSubmit}>
           <Label inputColor={formik.touched.login && formik.errors.login ? '#CF2C00' : '#0d0d0d'} htmlFor="login">
-            Логин
+            {LOGIN_PAGE_LOGIN}
           </Label>
 
           <Iput
@@ -84,8 +93,8 @@ const LoginPage: React.FunctionComponent<RouteComponentProps> = ({history}) => {
           />
 
           <SubloginWrapper>
-            <Options>Опционально</Options>
-            <Label htmlFor="sublogin">Сублогин</Label>
+            <Options>{LOGIN_PAGE_DESCRIPTION_INPUT}</Options>
+            <Label htmlFor="sublogin">{LOGIN_PAGE_SUBLOGIN}</Label>
             <Iput
               id="sublogin"
               name="sublogin"
@@ -97,7 +106,7 @@ const LoginPage: React.FunctionComponent<RouteComponentProps> = ({history}) => {
           </SubloginWrapper>
 
           <Label inputColor={formik.touched.password && formik.errors.password ? '#CF2C00' : '#0d0d0d'} htmlFor="password">
-            Пароль
+            {LOGIN_PAGE_PASSWORD}
           </Label>
 
           <IputPass
@@ -121,7 +130,7 @@ const LoginPage: React.FunctionComponent<RouteComponentProps> = ({history}) => {
           </Button>
         </Form>
         <LinkToGithab href="https://github.com/Giridhar108/hivexSS" target="_blank">
-          @github.com/Giridhar108/hivexSS
+          {LOGIN_PAGE_LINKTOGITHAB}
         </LinkToGithab>
       </FormInner>
     </Wrapper>
