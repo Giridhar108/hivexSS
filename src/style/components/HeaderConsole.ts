@@ -1,11 +1,12 @@
 import styled from 'styled-components';
+import {GREY_02, TEXT_BLACK} from '../../constants/styleVariables';
 
 export const HeaderConsole = styled.header`
   display: flex;
   justify-content: space-between;
   height: 50px;
   padding: 10px 15px;
-  border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+  border-bottom: 1px solid ${GREY_02};
 `;
 
 export const Sides = styled.div`
@@ -19,20 +20,20 @@ export const Title = styled.h1`
   margin-left: 20px;
   font-size: 20px;
   line-height: 30px;
-  color: #0d0d0d;
+  color: ${TEXT_BLACK};
 `;
 
 export const UserInfo = styled.div`
   padding: 5px 15px;
-  border: 1px solid rgba(0, 0, 0, 0.2);
+  border: 1px solid ${GREY_02};
   border-radius: 5px;
 
   font-size: 16px;
   line-height: 15px;
-  color: #0d0d0d;
+  color: ${TEXT_BLACK};
 
   span {
-    color: rgba(0, 0, 0, 0.2);
+    color: ${GREY_02};
   }
 `;
 
@@ -54,7 +55,7 @@ export const Logout = styled.button`
     height: 100%;
     font-size: 16px;
     line-height: 20px;
-    color: #0d0d0d;
+    color: ${TEXT_BLACK};
     margin-right: 8px;
   }
   svg {

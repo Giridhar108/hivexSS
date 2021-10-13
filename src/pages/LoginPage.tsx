@@ -33,6 +33,7 @@ import {
   LOGIN_PAGE_SUBLOGIN,
   APPLICATION_NAME,
 } from '../constants/variables';
+import { TEXT_RED } from '../constants/styleVariables';
 
 const LoginPage: React.FunctionComponent<RouteComponentProps> = ({history}) => {
   const dispatch = useAppDispatch();
@@ -78,12 +79,12 @@ const LoginPage: React.FunctionComponent<RouteComponentProps> = ({history}) => {
           </ErrorEnter>)
           : null}
         <Form onSubmit={formik.handleSubmit}>
-          <Label inputColor={formik.touched.login && formik.errors.login ? '#CF2C00' : '#0d0d0d'} htmlFor="login">
+          <Label inputColor={formik.touched.login && formik.errors.login ? TEXT_RED : '${TEXT_BLACK}'} htmlFor="login">
             {LOGIN_PAGE_LOGIN}
           </Label>
 
           <Iput
-            inputColor={formik.touched.login && formik.errors.login ? '#CF2C00' : 'rgba(0, 0, 0, 0.2)'}
+            inputColor={formik.touched.login && formik.errors.login ? TEXT_RED : 'rgba(0, 0, 0, 0.2)'}
             id="login"
             name="login"
             type="text"
@@ -105,12 +106,12 @@ const LoginPage: React.FunctionComponent<RouteComponentProps> = ({history}) => {
             />
           </SubloginWrapper>
 
-          <Label inputColor={formik.touched.password && formik.errors.password ? '#CF2C00' : '#0d0d0d'} htmlFor="password">
+          <Label inputColor={formik.touched.password && formik.errors.password ? TEXT_RED : '${TEXT_BLACK}'} htmlFor="password">
             {LOGIN_PAGE_PASSWORD}
           </Label>
 
           <IputPass
-            inputColor={formik.touched.password && formik.errors.password ? '#CF2C00' : 'rgba(0, 0, 0, 0.2)'}
+            inputColor={formik.touched.password && formik.errors.password ? TEXT_RED : 'rgba(0, 0, 0, 0.2)'}
             id="password"
             name="password"
             type="password"

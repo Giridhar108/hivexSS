@@ -1,4 +1,5 @@
 import styled, {keyframes} from 'styled-components';
+import {GREY_02, LINER_GRADIENT, TEXT_RED, WHITE} from '../../constants/styleVariables';
 
 interface Props {
   inputColor?: string;
@@ -40,7 +41,7 @@ export const FormInner = styled.section`
   position: relative;
   width: 520px;
   height: auto;
-  background: #ffffff;
+  background: ${WHITE};
   box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
   border-radius: 5px;
   padding: 40px 30px;
@@ -76,8 +77,8 @@ export const Iput = styled.input<Props>`
   font-size: 18px;
   line-height: 30px;
   border-radius: 5px;
-  border: 1px solid ${(props) => props.inputColor || 'rgba(0, 0, 0, 0.2)'};
-  box-shadow: ${(props) => (props.inputColor === '#CF2C00' ? '0px 0px 5px rgba(207, 44, 0, 0.5)' : '')};
+  border: 1px solid ${(props) => props.inputColor || GREY_02 };
+  box-shadow: ${(props) => (props.inputColor === TEXT_RED ? '0px 0px 5px rgba(207, 44, 0, 0.5)' : '')};
   margin-top: 5px;
   margin-bottom: 20px;
   cursor: pointer;
@@ -88,7 +89,7 @@ export const Iput = styled.input<Props>`
   &:focus {
     transition: all 0.2s;
     border: 1px solid rgba(0, 0, 0, 0.4);
-    box-shadow: 0 0 0 2px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 0 0 2px ${GREY_02};
     outline: none;
   }
 `;
@@ -110,12 +111,10 @@ export const Button = styled.button<Props>`
   font-weight: 500;
   font-size: 16px;
   line-height: 30px;
-  color: #ffffff;
+  color: ${WHITE};
 
   background: ${(props) =>
-    props.disabled
-      ? 'linear-gradient(0deg, #C4C4C4, #C4C4C4), linear-gradient(180deg, #45A6FF 0%, #0055FB 100%)'
-      : 'linear-gradient(180deg, #45a6ff 0%, #0055fb 100%), #c4c4c4'};
+    props.disabled ? 'linear-gradient(0deg, #C4C4C4, #C4C4C4), linear-gradient(180deg, #45A6FF 0%, #0055FB 100%)' : `${LINER_GRADIENT}`};
   border: none;
   border-radius: 5px;
   cursor: pointer;
@@ -125,7 +124,7 @@ export const Button = styled.button<Props>`
       : `&:hover {
     transition: all 0.2s;
     background: linear-gradient(0deg, rgba(255, 255, 255, 0.15), rgba(255, 255, 255, 0.15)),
-    linear-gradient(180deg, #45a6ff 0%, #0055fb 100%), #c4c4c4;
+    ${LINER_GRADIENT};
   }
   &:focus {
     transition: all 0.2s;
@@ -133,7 +132,7 @@ export const Button = styled.button<Props>`
     outline: none;
   }
   &:active {
-    background: linear-gradient(0deg, rgba(0, 0, 0, 0.15), rgba(0, 0, 0, 0.15)), linear-gradient(180deg, #45a6ff 0%, #0055fb 100%), #c4c4c4;
+    background: linear-gradient(0deg, rgba(0, 0, 0, 0.15), rgba(0, 0, 0, 0.15)), ${LINER_GRADIENT};
   }`};
 `;
 
@@ -157,7 +156,7 @@ export const ErrorTitle = styled.div`
   position: relative;
   font-size: 18px;
   line-height: 30px;
-  color: #cf2c00;
+  color: ${TEXT_RED};
   &::before {
     content: url('/icons/chel.svg');
     position: absolute;
@@ -170,7 +169,7 @@ export const ErrorText = styled.div`
   position: relative;
   font-size: 12px;
   line-height: 20px;
-  color: #cf2c00;
+  color: ${TEXT_RED};
   opacity: 0.5;
 `;
 
