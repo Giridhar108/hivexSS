@@ -5,7 +5,7 @@ import {validate} from '../helpers/validate';
 import ReactLoading from 'react-loading';
 
 import {useAppDispatch, useAppSelector} from '../app/hooks';
-import {ActionTypes} from '../constants';
+import {ActionTypes} from '../constants/sagaActions';
 import {
   FormInner,
   Iput,

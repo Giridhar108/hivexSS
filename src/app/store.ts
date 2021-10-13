@@ -5,6 +5,7 @@ import root from '../store/sagas';
 import storage from 'redux-persist/lib/storage'
 
 import authReducer from '../features/auth/authSlice';
+import querySlice from '../features/query/querySlice';
 
 const persistConfig = {
   key: 'root',
@@ -23,6 +24,7 @@ const middleware = [
 export const store = configureStore({
   reducer: {
     auth: persistedReducer,
+    query: querySlice,
   },
   middleware: middleware,
 });

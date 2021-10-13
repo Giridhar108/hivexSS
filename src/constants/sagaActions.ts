@@ -8,4 +8,5 @@ export const ActionTypes = keyMirror({
   LOGOUT: undefined,
   LOGOUT_SUCCESS: undefined,
   LOGOUT_FAILURE: undefined,
+  QUERY: undefined,
 });

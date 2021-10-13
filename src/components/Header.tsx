@@ -1,7 +1,7 @@
 import React from 'react';
 import {useAppDispatch, useAppSelector} from '../app/hooks';
 import useOpenFullScreen from '../hooks/useOpenFullScreen';
-import {ActionTypes} from '../constants';
+import {ActionTypes} from '../constants/sagaActions';
 import {FullScreen, HeaderConsole, Logo, Logout, Sides, Title, UserInfo} from '../style/components/HeaderConsole';
 import {CONSOLE_EXIT, APPLICATION_NAME} from '../constants/variables';
 

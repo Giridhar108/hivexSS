@@ -8,13 +8,15 @@ export interface Ifooter {
   setFormat: Dispatch<SetStateAction<boolean>>;
 }
 
-function Footer({setSend, setFormat}: Ifooter) {
+function Footer({ setSend, setFormat }: Ifooter) {
+
   const handleSetSend = () => {
     setSend(true);
   };
   const handleSetFormat = () => {
     setFormat(true);
   };
+
   return (
     <FooterConsole>
       <Button width="120px" type="submit" onClick={handleSetSend}>
