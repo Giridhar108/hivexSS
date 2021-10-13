@@ -71,12 +71,12 @@ const LoginPage: React.FunctionComponent<RouteComponentProps> = ({history}) => {
       <FormInner>
         <LogoStyled src="/icons/logo.svg" alt="logo" />
         <Title>{APPLICATION_NAME}</Title>
-        {status.status !== 'idle' ? (
-          <ErrorEnter>
+        {status.status !== 'idle'
+          ? (<ErrorEnter>
             <ErrorTitle>{LOGIN_PAGE_ERROR}</ErrorTitle>
             <ErrorText>{`{id: "${status?.id}", explain: "${status?.explain}"}`}</ErrorText>
-          </ErrorEnter>
-        ) : null}
+          </ErrorEnter>)
+          : null}
         <Form onSubmit={formik.handleSubmit}>
           <Label inputColor={formik.touched.login && formik.errors.login ? '#CF2C00' : '#0d0d0d'} htmlFor="login">
             {LOGIN_PAGE_LOGIN}
@@ -120,13 +120,11 @@ const LoginPage: React.FunctionComponent<RouteComponentProps> = ({history}) => {
           />
 
           <Button disabled={Boolean(formik.errors.login) || Boolean(formik.errors.password) || loading} type="submit">
-            {loading ? (
-              <Article>
+            {loading
+              ? (<Article>
                 <ReactLoading type={'spokes'} color="#fff" />
-              </Article>
-            ) : (
-              'Войти'
-            )}
+              </Article>)
+              : ('Войти')}
           </Button>
         </Form>
         <LinkToGithab href="https://github.com/Giridhar108/hivexSS" target="_blank">
