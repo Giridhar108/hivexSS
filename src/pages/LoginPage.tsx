@@ -33,7 +33,7 @@ import {
   LOGIN_PAGE_SUBLOGIN,
   APPLICATION_NAME,
 } from '../constants/variables';
-import { TEXT_RED } from '../constants/styleVariables';
+import { TEXT_BLACK, TEXT_RED } from '../constants/styleVariables';
 
 const LoginPage: React.FunctionComponent<RouteComponentProps> = ({history}) => {
   const dispatch = useAppDispatch();
@@ -79,7 +79,7 @@ const LoginPage: React.FunctionComponent<RouteComponentProps> = ({history}) => {
           </ErrorEnter>)
           : null}
         <Form onSubmit={formik.handleSubmit}>
-          <Label inputColor={formik.touched.login && formik.errors.login ? TEXT_RED : '${TEXT_BLACK}'} htmlFor="login">
+          <Label inputColor={formik.touched.login && formik.errors.login ? TEXT_RED : TEXT_BLACK} htmlFor="login">
             {LOGIN_PAGE_LOGIN}
           </Label>
 
@@ -106,7 +106,7 @@ const LoginPage: React.FunctionComponent<RouteComponentProps> = ({history}) => {
             />
           </SubloginWrapper>
 
-          <Label inputColor={formik.touched.password && formik.errors.password ? TEXT_RED : '${TEXT_BLACK}'} htmlFor="password">
+          <Label inputColor={formik.touched.password && formik.errors.password ? TEXT_RED : TEXT_BLACK} htmlFor="password">
             {LOGIN_PAGE_PASSWORD}
           </Label>
 

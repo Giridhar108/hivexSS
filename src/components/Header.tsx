@@ -1,5 +1,5 @@
 import React from 'react';
-import {useAppDispatch} from '../app/hooks';
+import {useAppDispatch, useAppSelector} from '../app/hooks';
 import useOpenFullScreen from '../hooks/useOpenFullScreen';
 import {ActionTypes} from '../constants';
 import {FullScreen, HeaderConsole, Logo, Logout, Sides, Title, UserInfo} from '../style/components/HeaderConsole';
@@ -7,6 +7,7 @@ import {CONSOLE_EXIT, APPLICATION_NAME} from '../constants/variables';
 
 function Header() {
   const dispatch = useAppDispatch();
+  const {login, sublogin} = useAppSelector((state) => state.auth);
 
   const handleLogout = () => {
     dispatch({
@@ -24,7 +25,7 @@ function Header() {
       </Sides>
       <Sides>
         <UserInfo>
-          some@email.com <span>:</span> sublogin
+          {login} {sublogin ? `<span> : </span> ${sublogin}` : null}
         </UserInfo>
         <Logout onClick={handleLogout}>
           <span>{CONSOLE_EXIT}</span>
