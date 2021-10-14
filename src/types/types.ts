@@ -45,4 +45,6 @@ export interface Ivalidate {
 export interface Iselect {
   select: boolean;
   setSelect: Dispatch<SetStateAction<boolean>>;
+  el?: IoneQuery;
+  i?: number;
 }

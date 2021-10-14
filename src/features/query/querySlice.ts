@@ -22,9 +22,13 @@ export const counterSlice = createSlice({
       state.oneQuery = response;
       state.lineQuery.push(response);
     },
+    deleteQuery: (state, action: PayloadAction<{idx: number | undefined}>) => {
+      state.lineQuery = state.lineQuery
+        .filter((el, i) => i !== action.payload.idx);
+    },
   },
 });
 
-export const {setQuery} = counterSlice.actions;
+export const {setQuery, deleteQuery} = counterSlice.actions;
 
 export default counterSlice.reducer;

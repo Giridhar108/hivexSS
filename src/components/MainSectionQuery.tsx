@@ -45,14 +45,14 @@ function MainSectionQuery({send, format, setSend, setFormat}: Imain) {
         <Label colorLabel={errorQuery} htmlFor="one">
           {MAIN_QUERY}
         </Label>
-        <Textarea colorLabel={errorQuery} name="one" id="" {...textareaOne}></Textarea>
+        <Textarea colorLabel={errorQuery} name="one" {...textareaOne}></Textarea>
       </WrapperColumn>
       <Spliter>{spliterSvg}</Spliter>
       <WrapperColumn>
         <Label colorLabel={oneQuery.status === 'reject'} htmlFor="two">
           {MAIN_RESPONSE}
         </Label>
-        <Textarea colorLabel={oneQuery.status === 'reject'} readOnly name="two" id="" defaultValue={response}></Textarea>
+        <Textarea colorLabel={oneQuery.status === 'reject'} readOnly name="two" defaultValue={response}></Textarea>
       </WrapperColumn>
     </SectionQuery>
   );

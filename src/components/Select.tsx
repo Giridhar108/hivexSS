@@ -1,21 +1,30 @@
 import React from 'react';
-import { useSelectClose } from '../hooks/useSelectClose';
+import {useAppDispatch, useAppSelector} from '../app/hooks';
+import { deleteQuery } from '../features/query/querySlice';
+import {useSelectClose} from '../hooks/useSelectClose';
 import {SelectItem, SelectItemDelete, SelectItemLine, SelectWrapper} from '../style/components/Select';
 import {Iselect} from '../types/types';
 
-function Select({select, setSelect}: Iselect) {
-  const handleSetSelect = () => {
+function Select({select, setSelect, el, i}: Iselect) {
+  const dispatch = useAppDispatch();
+  const {oneQuery} = useAppSelector((state) => state.query);
+
+  const handleSetSelect = (type?: string) => {
     setSelect(false);
+    console.log(type);
+    if (type === 'Удалить') {
+      dispatch(deleteQuery({idx: i}));
+    }
   };
 
-  const [ dropdown ] =  useSelectClose({ select, setSelect })
+  const [dropdown] = useSelectClose({select, setSelect});
 
   return (
-    <SelectWrapper ref={dropdown} visible={select} onClick={handleSetSelect}>
-      <SelectItem onClick={handleSetSelect}>Выполнить</SelectItem>
-      <SelectItem onClick={handleSetSelect}>Скопировать</SelectItem>
+    <SelectWrapper ref={dropdown} visible={select}>
+      <SelectItem onClick={() => handleSetSelect('Выполнить')}>Выполнить</SelectItem>
+      <SelectItem onClick={() => handleSetSelect('Скопировать')}>Скопировать</SelectItem>
       <SelectItemLine></SelectItemLine>
-      <SelectItemDelete onClick={handleSetSelect}>Удалить</SelectItemDelete>
+      <SelectItemDelete onClick={() => handleSetSelect('Удалить')}>Удалить</SelectItemDelete>
     </SelectWrapper>
   );
 }

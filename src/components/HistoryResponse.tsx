@@ -18,7 +18,7 @@ function HistoryResponse() {
       <LineHistory ref={scrollRef}>
         {lineQuery &&
           lineQuery.map((el, i) => {
-            return <OneHistoryItem el={el} key={`${JSON.parse(el.text).action}_${i}`}/>;
+            return <OneHistoryItem el={el} i={i} key={`${JSON.parse(el.text).action}_${i}`}/>;
           })}
       </LineHistory>
       <DeleteItemHistory>{deleteHistorySvg}</DeleteItemHistory>

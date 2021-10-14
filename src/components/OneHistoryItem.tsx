@@ -6,11 +6,7 @@ import {rejectSvg} from '../svg/rejectSvg';
 import { resolveSvg } from '../svg/resolveSvg';
 import { IoneQuery } from '../types/types';
 
-interface IOneHistoryItem {
-  el: IoneQuery;
-}
-
-function OneHistoryItem({el}: IOneHistoryItem) {
+function OneHistoryItem({el, i}: {el: IoneQuery, i: number}) {
   const [select, setSelect] = useState(false);
   const handleSetSelect = () => {
     setSelect(!select);
@@ -23,7 +19,7 @@ function OneHistoryItem({el}: IOneHistoryItem) {
         <p> {JSON.parse(el.text).action}</p>
         <SvgHistory>{dotsSvg}</SvgHistory>
       </HistoryItem>
-      <Select select={select} setSelect={setSelect} />
+      <Select select={select} setSelect={setSelect} el={el} i={i}/>
     </WrapperHistoryItem>
   );
 }
