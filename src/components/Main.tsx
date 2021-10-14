@@ -1,4 +1,4 @@
-import React, {Dispatch, SetStateAction, useEffect} from 'react';
+import React, {useEffect} from 'react';
 import {useAppDispatch, useAppSelector} from '../app/hooks';
 import {ActionTypes} from '../constants/sagaActions';
 import {MAIN_QUERY, MAIN_RESPONSE} from '../constants/variables';
@@ -6,13 +6,7 @@ import {isJsonString} from '../helpers/isJsonString';
 import {UseFormField} from '../hooks/useFormField';
 import {Label, MainConsole, SectionHistory, SectionQuery, Spliter, Textarea, WrapperColumn} from '../style/components/MainConsole';
 import { spliterSvg } from '../svg/spliterSvg';
-
-interface Imain {
-  send: boolean;
-  format: boolean;
-  setSend: Dispatch<SetStateAction<boolean>>;
-  setFormat: Dispatch<SetStateAction<boolean>>;
-}
+import { Imain } from '../types/types';
 
 function Main({send, format, setSend, setFormat}: Imain) {
   const dispatch = useAppDispatch();

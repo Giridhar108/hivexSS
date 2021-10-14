@@ -1,8 +1,4 @@
-interface Ivalidate {
-  login?: string;
-  sublogin?: string;
-  password?: string;
-}
+import { Ivalidate } from "../types/types";
 
 export const validate = (values: Ivalidate) => {
   const errors: Ivalidate = {};

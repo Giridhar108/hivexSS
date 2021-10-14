@@ -1,17 +1,7 @@
 import {createSlice, PayloadAction} from '@reduxjs/toolkit';
+import { IoneQuery, Iquery } from '../../types/types';
 
-interface IoneQuery {
-  text: string;
-  response: string;
-  status: string;
-}
-
-interface query {
-  oneQuery: IoneQuery;
-  lineQuery: IoneQuery[];
-}
-
-export const initialState: query = {
+export const initialState: Iquery = {
   oneQuery: {text: '', response: '', status: ''},
   lineQuery: [],
 };
@@ -20,7 +10,7 @@ export const counterSlice = createSlice({
   name: 'query',
   initialState,
   reducers: {
-    setQuery: (state, action: PayloadAction<any>) => {
+    setQuery: (state, action: PayloadAction<IoneQuery>) => {
       state.oneQuery = {
         text: action.payload.text,
         response: action.payload.response,
