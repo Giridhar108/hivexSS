@@ -1,8 +1,8 @@
 import {all, put, takeLatest} from 'redux-saga/effects';
 import api from 'src/helpers/sendsay';
 
-import {ActionTypes} from '../../constants/sagaActions';
-import { setQuery } from '../../features/query/querySlice';
+import {ActionTypes} from '../constants/sagaActions';
+import { setQuery } from '../features/query/querySlice';
 
 export function* querySaga({ payload }) {
   console.log(payload)

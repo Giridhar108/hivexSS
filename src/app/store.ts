@@ -1,7 +1,7 @@
 import {configureStore, ThunkAction, Action, getDefaultMiddleware} from '@reduxjs/toolkit';
 import {persistStore, FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE, REGISTER, persistReducer} from 'redux-persist';
 import createSagaMiddleware from 'redux-saga';
-import root from '../store/sagas';
+import root from '../sagas';
 import storage from 'redux-persist/lib/storage'
 
 import authReducer from '../features/auth/authSlice';
