@@ -1,12 +1,12 @@
-import React, { useEffect } from 'react';
-import { useAppDispatch, useAppSelector } from '../app/hooks';
-import { ActionTypes } from '../constants/sagaActions';
-import { MAIN_QUERY, MAIN_RESPONSE } from '../constants/variables';
-import { isJsonString } from '../helpers/isJsonString';
-import { UseFormField } from '../hooks/useFormField';
-import { Label, SectionQuery, Spliter, Textarea, WrapperColumn } from '../style/components/MainConsole';
-import { spliterSvg } from '../svg/spliterSvg';
-import { Imain } from '../types/types';
+import React, {useEffect} from 'react';
+import {useAppDispatch, useAppSelector} from '../app/hooks';
+import {ActionTypes} from '../constants/sagaActions';
+import {MAIN_QUERY, MAIN_RESPONSE} from '../constants/variables';
+import {isJsonString} from '../helpers/isJsonString';
+import {UseFormField} from '../hooks/useFormField';
+import {Label, SectionQuery, Spliter, Textarea, WrapperColumn} from '../style/components/MainConsole';
+import {spliterSvg} from '../svg/spliterSvg';
+import {Imain} from '../types/types';
 
 function MainSectionQuery({send, format, setSend, setFormat}: Imain) {
   const dispatch = useAppDispatch();
@@ -19,7 +19,7 @@ function MainSectionQuery({send, format, setSend, setFormat}: Imain) {
 
   useEffect(() => {
     if (send && isJsonString(textareaOne.value)) {
-      dispatch({type: ActionTypes.QUERY, payload: JSON.parse(textareaOne.value)});
+      dispatch({type: ActionTypes.QUERY, payload: {request: JSON.parse(textareaOne.value), type: ''}});
       setSend(false);
       setErrorQuery(false);
     }

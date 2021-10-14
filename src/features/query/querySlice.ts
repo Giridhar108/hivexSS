@@ -3,10 +3,7 @@ import {IoneQuery, Iquery} from '../../types/types';
 
 export const initialState: Iquery = {
   oneQuery: {text: '', response: '', status: ''},
-  lineQuery: [
-    {text: '{"action":"pong"}', response: 'Hare Krishna', status: 'resolve'},
-    {text: '{"action":"pong"}', response: 'Hare Krishna', status: 'reject'},
-  ],
+  lineQuery: [],
 };
 
 export const counterSlice = createSlice({
@@ -20,11 +17,12 @@ export const counterSlice = createSlice({
         status: action.payload.status,
       };
       state.oneQuery = response;
-      state.lineQuery.push(response);
+      if (action.payload.type !== 'history') {
+        state.lineQuery.push(response);
+      }
     },
     deleteQuery: (state, action: PayloadAction<{idx: number | undefined}>) => {
-      state.lineQuery = state.lineQuery
-        .filter((el, i) => i !== action.payload.idx);
+      state.lineQuery = state.lineQuery.filter((el, i) => i !== action.payload.idx);
     },
   },
 });

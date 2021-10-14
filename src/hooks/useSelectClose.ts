@@ -1,7 +1,7 @@
-import {useEffect, useRef} from 'react';
+import {Dispatch, SetStateAction, useEffect, useRef} from 'react';
 import {Iselect} from '../types/types';
 
-export const useSelectClose = ({select, setSelect}: Iselect) => {
+export const useSelectClose = ({select, setSelect}: {select: boolean; setSelect: Dispatch<SetStateAction<boolean>>}) => {
   const dropdown = useRef<HTMLHeadingElement>(null);
 
   useEffect(() => {

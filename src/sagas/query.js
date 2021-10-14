@@ -8,25 +8,27 @@ export function* querySaga({ payload }) {
   console.log(payload)
   try {
     const response = yield api.sendsay
-      .request(payload)
+      .request(payload.request)
       .then((res) => {
         return res;
       });
 
     yield put(
       setQuery({
-        text: JSON.stringify(payload),
+        text: JSON.stringify(payload.request),
         response: JSON.stringify(response),
         status: 'resolve',
+        type: payload.type ?? ''
       })
     );
   } catch (error) {
     console.log('err', error);
     yield put(
       setQuery({
-        text: JSON.stringify(payload),
+        text: JSON.stringify(payload.request),
         response: '',
         status: 'reject',
+        type: payload.type ?? ''
       })
     );
   }

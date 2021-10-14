@@ -24,6 +24,7 @@ export interface IoneQuery {
   text: string;
   response: string;
   status: string;
+  type?: string;
 }
 
 export interface Iquery {
@@ -45,6 +46,6 @@ export interface Ivalidate {
 export interface Iselect {
   select: boolean;
   setSelect: Dispatch<SetStateAction<boolean>>;
-  el?: IoneQuery;
+  el: IoneQuery;
   i?: number;
 }

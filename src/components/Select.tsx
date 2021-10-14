@@ -1,5 +1,6 @@
 import React from 'react';
 import {useAppDispatch, useAppSelector} from '../app/hooks';
+import { ActionTypes } from '../constants/sagaActions';
 import { deleteQuery } from '../features/query/querySlice';
 import {useSelectClose} from '../hooks/useSelectClose';
 import {SelectItem, SelectItemDelete, SelectItemLine, SelectWrapper} from '../style/components/Select';
@@ -14,6 +15,10 @@ function Select({select, setSelect, el, i}: Iselect) {
     console.log(type);
     if (type === 'Удалить') {
       dispatch(deleteQuery({idx: i}));
+    }
+    if (type === 'Выполнить') {
+      console.log(el)
+      dispatch({type: ActionTypes.QUERY, payload: {request: JSON.parse(el?.text), type: 'history'}})
     }
   };
 
