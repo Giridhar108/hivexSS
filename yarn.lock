@@ -2283,6 +2283,41 @@
     "@svgr/plugin-svgo" "^5.4.0"
     loader-utils "^2.0.0"
 
+"@syncfusion/ej2-base@~19.3.43":
+  version "19.3.43"
+  resolved "https://registry.yarnpkg.com/@syncfusion/ej2-base/-/ej2-base-19.3.43.tgz#e2b28a33b18629ce863d2666310cf2bf897f36d6"
+  integrity sha512-4cYDAwERBT0NzeUheN8t00gc3jwUpM+9ceBICNl15N9plhITN0r3BEDK/OSepFsP9WVFkDyYgV/wtP6sf/zuIA==
+  dependencies:
+    "@syncfusion/ej2-icons" "~19.3.43"
+
+"@syncfusion/ej2-icons@~19.3.43":
+  version "19.3.43"
+  resolved "https://registry.yarnpkg.com/@syncfusion/ej2-icons/-/ej2-icons-19.3.43.tgz#99b6806444e299ad509979528f82e65e3d6475a3"
+  integrity sha512-vWl6AlBEP4OEcXem/H7+zYKGNdqbbz/ddho0/l/U16Z1T6UWrKhIUizkekOgwVkSwqA0NFs+X2YgwSaM8YdZBA==
+
+"@syncfusion/ej2-layouts@19.3.44":
+  version "19.3.44"
+  resolved "https://registry.yarnpkg.com/@syncfusion/ej2-layouts/-/ej2-layouts-19.3.44.tgz#7e8d2e578209f8944c20089b80e168296c6d870c"
+  integrity sha512-gXnlINbqmNhlcYqpIHGubttvrftzE6riCv22IkDExFniPyZMO48A7j5tsoRM1NlX07xuLCPA2MUHqAWbh2Dhrw==
+  dependencies:
+    "@syncfusion/ej2-base" "~19.3.43"
+
+"@syncfusion/ej2-react-base@~19.3.43":
+  version "19.3.45"
+  resolved "https://registry.yarnpkg.com/@syncfusion/ej2-react-base/-/ej2-react-base-19.3.45.tgz#d5a134dc8b9d9d96c9938f5b319f8b6a5527bf8f"
+  integrity sha512-MxN8Vm3qBOaxUrTaeTStK40Iz5n9LPwbONlfX8iIO6jswFZevojNFfTpHztBLlMWnboFxDprzTMvt9m0rX3JWA==
+  dependencies:
+    "@syncfusion/ej2-base" "~19.3.43"
+
+"@syncfusion/ej2-react-layouts@^19.3.44":
+  version "19.3.44"
+  resolved "https://registry.yarnpkg.com/@syncfusion/ej2-react-layouts/-/ej2-react-layouts-19.3.44.tgz#09858f8c5fccd0df008d14b3a003cafab1fb57b5"
+  integrity sha512-CobANeUtb8Ztbs2SYy4ugXyQshYm9UvrXjSk+H2Qqd64PPtF5pKTtc71dzg3cayfg9dTOJctF1AzwVH3TtkHIQ==
+  dependencies:
+    "@syncfusion/ej2-base" "~19.3.43"
+    "@syncfusion/ej2-layouts" "19.3.44"
+    "@syncfusion/ej2-react-base" "~19.3.43"
+
 "@testing-library/dom@^6.15.0":
   version "6.16.0"
   resolved "https://registry.yarnpkg.com/@testing-library/dom/-/dom-6.16.0.tgz#04ada27ed74ad4c0f0d984a1245bb29b1fd90ba9"

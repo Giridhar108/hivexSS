@@ -5,7 +5,7 @@ import {validate} from '../helpers/validate';
 import ReactLoading from 'react-loading';
 
 import {useAppDispatch, useAppSelector} from '../app/hooks';
-import {ActionTypes} from '../constants';
+import {ActionTypes} from '../constants/sagaActions';
 import {
   FormInner,
   Iput,
@@ -33,7 +33,7 @@ import {
   LOGIN_PAGE_SUBLOGIN,
   APPLICATION_NAME,
 } from '../constants/variables';
-import { TEXT_RED } from '../constants/styleVariables';
+import { TEXT_BLACK, TEXT_RED } from '../constants/styleVariables';
 
 const LoginPage: React.FunctionComponent<RouteComponentProps> = ({history}) => {
   const dispatch = useAppDispatch();
@@ -73,13 +73,13 @@ const LoginPage: React.FunctionComponent<RouteComponentProps> = ({history}) => {
         <LogoStyled src="/icons/logo.svg" alt="logo" />
         <Title>{APPLICATION_NAME}</Title>
         {status.status !== 'idle'
-          ? (<ErrorEnter>
-            <ErrorTitle>{LOGIN_PAGE_ERROR}</ErrorTitle>
-            <ErrorText>{`{id: "${status?.id}", explain: "${status?.explain}"}`}</ErrorText>
-          </ErrorEnter>)
+          ? <ErrorEnter>
+              <ErrorTitle>{LOGIN_PAGE_ERROR}</ErrorTitle>
+              <ErrorText>{`{id: "${status?.id}", explain: "${status?.explain}"}`}</ErrorText>
+            </ErrorEnter>
           : null}
         <Form onSubmit={formik.handleSubmit}>
-          <Label inputColor={formik.touched.login && formik.errors.login ? TEXT_RED : '${TEXT_BLACK}'} htmlFor="login">
+          <Label inputColor={formik.touched.login && formik.errors.login ? TEXT_RED : TEXT_BLACK} htmlFor="login">
             {LOGIN_PAGE_LOGIN}
           </Label>
 
@@ -106,7 +106,7 @@ const LoginPage: React.FunctionComponent<RouteComponentProps> = ({history}) => {
             />
           </SubloginWrapper>
 
-          <Label inputColor={formik.touched.password && formik.errors.password ? TEXT_RED : '${TEXT_BLACK}'} htmlFor="password">
+          <Label inputColor={formik.touched.password && formik.errors.password ? TEXT_RED : TEXT_BLACK} htmlFor="password">
             {LOGIN_PAGE_PASSWORD}
           </Label>
 
@@ -122,10 +122,10 @@ const LoginPage: React.FunctionComponent<RouteComponentProps> = ({history}) => {
 
           <Button disabled={Boolean(formik.errors.login) || Boolean(formik.errors.password) || loading} type="submit">
             {loading
-              ? (<Article>
-                <ReactLoading type={'spokes'} color="#fff" />
-              </Article>)
-              : ('Войти')}
+              ? <Article>
+                  <ReactLoading type={'spokes'} color="#fff" />
+                </Article>
+              : 'Войти'}
           </Button>
         </Form>
         <LinkToGithab href="https://github.com/Giridhar108/hivexSS" target="_blank">

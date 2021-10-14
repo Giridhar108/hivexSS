@@ -3,6 +3,7 @@ import {GREY_02, LINER_GRADIENT, TEXT_RED, WHITE} from '../../constants/styleVar
 
 interface Props {
   inputColor?: string;
+  width?: string;
   disabled?: boolean;
 }
 
@@ -77,7 +78,7 @@ export const Iput = styled.input<Props>`
   font-size: 18px;
   line-height: 30px;
   border-radius: 5px;
-  border: 1px solid ${(props) => props.inputColor || GREY_02 };
+  border: 1px solid ${(props) => props.inputColor || GREY_02};
   box-shadow: ${(props) => (props.inputColor === TEXT_RED ? '0px 0px 5px rgba(207, 44, 0, 0.5)' : '')};
   margin-top: 5px;
   margin-bottom: 20px;
@@ -105,7 +106,7 @@ export const Title = styled.h1`
 `;
 
 export const Button = styled.button<Props>`
-  width: 110px;
+  width: ${(props) => (props.width ? props.width : '110px')};
   height: 40px;
 
   font-weight: 500;

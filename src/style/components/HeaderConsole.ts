@@ -72,4 +72,21 @@ export const FullScreen = styled.button`
   border: none;
   margin-left: 20px;
   cursor: pointer;
+  border-radius: 7px;
+  stroke: #0d0d0d;
+
+  svg path {
+    stroke: inherit;
+  }
+
+  &:hover {
+    color: #0055fb;
+    stroke: #0055fb;
+  }
+
+  &:focus {
+    outline: 2px solid rgb(69, 165, 255, 0.5);
+    color: #0055fb;
+    stroke: #0055fb;
+  }
 `;
