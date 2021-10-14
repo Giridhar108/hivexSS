@@ -54,8 +54,8 @@ function Main({send, format, setSend, setFormat}: Imain) {
           {spliterSvg}
         </Spliter>
         <WrapperColumn>
-          <Label htmlFor="two">{MAIN_RESPONSE}</Label>
-          <Textarea readOnly name="two" id="" defaultValue={response}></Textarea>
+          <Label colorLabel={oneQuery.status === 'reject'} htmlFor="two">{MAIN_RESPONSE}</Label>
+          <Textarea colorLabel={oneQuery.status === 'reject'} readOnly name="two" id="" defaultValue={response}></Textarea>
         </WrapperColumn>
       </SectionQuery>
     </MainConsole>
