@@ -12,9 +12,13 @@ export const SectionHistory = styled.section`
 
 export const LineHistory = styled.div`
   display: flex;
+  width: 100%;
   padding: 10px 15px;
   overflow: hidden;
   overflow-x: auto;
+`;
+
+export const WrapperHistoryItem = styled.div`
 `;
 
 export const HistoryItem = styled.div`
@@ -30,6 +34,7 @@ export const HistoryItem = styled.div`
   box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.1);
   border-radius: 5px;
   cursor: pointer;
+  transition: all 0.2s;
 
   svg {
     margin-right: 5px;
@@ -41,6 +46,10 @@ export const HistoryItem = styled.div`
     margin: 0;
     margin-right: 10px;
     padding-bottom: 2px;
+  }
+
+  &:hover {
+    box-shadow: 0px 1px 4px rgba(0, 0, 0, 0.25);
   }
 `;
 

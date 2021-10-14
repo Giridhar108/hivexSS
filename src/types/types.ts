@@ -1,4 +1,4 @@
-import { Dispatch, SetStateAction } from "react";
+import {Dispatch, SetStateAction} from 'react';
 
 export interface Imain {
   send: boolean;
@@ -40,4 +40,9 @@ export interface Ivalidate {
   login?: string;
   sublogin?: string;
   password?: string;
+}
+
+export interface Iselect {
+  select: boolean;
+  setSelect: Dispatch<SetStateAction<boolean>>;
 }

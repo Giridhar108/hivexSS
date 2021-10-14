@@ -1,4 +1,4 @@
-import React, { ChangeEvent } from "react";
+import React from "react";
 
 export const UseFormField = (clear: boolean, setclear: (value: boolean) => void) => {
   const [value, setValue] = React.useState("");

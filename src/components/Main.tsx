@@ -43,7 +43,7 @@ function Main({send, format, setSend, setFormat}: Imain) {
 
   return (
     <MainConsole>
-      <HistoryResponse></HistoryResponse>
+      <HistoryResponse/>
       <SectionQuery>
         <WrapperColumn>
           <Label colorLabel={errorQuery} htmlFor="one">

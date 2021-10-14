@@ -3,7 +3,10 @@ import {IoneQuery, Iquery} from '../../types/types';
 
 export const initialState: Iquery = {
   oneQuery: {text: '', response: '', status: ''},
-  lineQuery: [],
+  lineQuery: [
+    {text: '{"action":"pong"}', response: 'Hare Krishna', status: 'resolve'},
+    {text: '{"action":"pong"}', response: 'Hare Krishna', status: 'reject'},
+  ],
 };
 
 export const counterSlice = createSlice({

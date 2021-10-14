@@ -1,15 +1,16 @@
 import React from 'react';
 import {useAppSelector} from '../app/hooks';
-import { useHorizontalScroll } from '../hooks/useHorizontalScroll';
-import {DeleteItemHistory, HistoryItem, LineHistory, SectionHistory, SvgHistory} from '../style/components/HistoryResponse';
+import {useHorizontalScroll} from '../hooks/useHorizontalScroll';
+import {
+  DeleteItemHistory,
+  LineHistory,
+  SectionHistory,
+} from '../style/components/HistoryResponse';
 import {deleteHistorySvg} from '../svg/deleteHistorySvg';
-import { dotsSvg } from '../svg/dotsSvg';
-import {rejectSvg} from '../svg/rejectSvg';
-import {resolveSvg} from '../svg/resolveSvg';
+import OneHistoryItem from './OneHistoryItem';
 
 function HistoryResponse() {
   const {lineQuery} = useAppSelector((state) => state.query);
-
   const scrollRef = useHorizontalScroll();
 
   return (
@@ -17,13 +18,7 @@ function HistoryResponse() {
       <LineHistory ref={scrollRef}>
         {lineQuery &&
           lineQuery.map((el, i) => {
-            return (
-              <HistoryItem key={`${JSON.parse(el.text).action}_${i}`}>
-                {el.status ? resolveSvg : rejectSvg}
-                <p> {JSON.parse(el.text).action}</p>
-                <SvgHistory>{dotsSvg}</SvgHistory>
-              </HistoryItem>
-            );
+            return <OneHistoryItem el={el} key={`${JSON.parse(el.text).action}_${i}`}/>;
           })}
       </LineHistory>
       <DeleteItemHistory>{deleteHistorySvg}</DeleteItemHistory>
