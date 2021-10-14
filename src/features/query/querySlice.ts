@@ -1,5 +1,5 @@
 import {createSlice, PayloadAction} from '@reduxjs/toolkit';
-import { IoneQuery, Iquery } from '../../types/types';
+import {IoneQuery, Iquery} from '../../types/types';
 
 export const initialState: Iquery = {
   oneQuery: {text: '', response: '', status: ''},
@@ -11,11 +11,13 @@ export const counterSlice = createSlice({
   initialState,
   reducers: {
     setQuery: (state, action: PayloadAction<IoneQuery>) => {
-      state.oneQuery = {
+      const response = {
         text: action.payload.text,
         response: action.payload.response,
         status: action.payload.status,
       };
+      state.oneQuery = response;
+      state.lineQuery.push(response);
     },
   },
 });

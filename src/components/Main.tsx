@@ -4,9 +4,10 @@ import {ActionTypes} from '../constants/sagaActions';
 import {MAIN_QUERY, MAIN_RESPONSE} from '../constants/variables';
 import {isJsonString} from '../helpers/isJsonString';
 import {UseFormField} from '../hooks/useFormField';
-import {Label, MainConsole, SectionHistory, SectionQuery, Spliter, Textarea, WrapperColumn} from '../style/components/MainConsole';
+import {Label, MainConsole, SectionQuery, Spliter, Textarea, WrapperColumn} from '../style/components/MainConsole';
 import { spliterSvg } from '../svg/spliterSvg';
 import { Imain } from '../types/types';
+import HistoryResponse from './HistoryResponse';
 
 function Main({send, format, setSend, setFormat}: Imain) {
   const dispatch = useAppDispatch();
@@ -42,7 +43,7 @@ function Main({send, format, setSend, setFormat}: Imain) {
 
   return (
     <MainConsole>
-      <SectionHistory></SectionHistory>
+      <HistoryResponse></HistoryResponse>
       <SectionQuery>
         <WrapperColumn>
           <Label colorLabel={errorQuery} htmlFor="one">

@@ -11,14 +11,6 @@ export const MainConsole = styled.main`
   height: 100%;
 `;
 
-export const SectionHistory = styled.section`
-  display: flex;
-  width: 100%;
-  min-height: 50px;
-  padding: 10px 15px;
-  border-bottom: 1px solid ${GREY_02};
-`;
-
 export const SectionQuery = styled.section`
   display: flex;
   background: ${WHITE};

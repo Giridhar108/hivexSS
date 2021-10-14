@@ -74,6 +74,7 @@ export const FullScreen = styled.button`
   cursor: pointer;
   border-radius: 7px;
   stroke: #0d0d0d;
+  transition: all 0.2s;
 
   svg path {
     stroke: inherit;
@@ -82,6 +83,7 @@ export const FullScreen = styled.button`
   &:hover {
     color: #0055fb;
     stroke: #0055fb;
+    transition: all 0.2s;
   }
 
   &:focus {
