@@ -1,16 +1,13 @@
-import React, {useEffect, useState} from 'react';
+import React, {useEffect} from 'react';
 import {RouteComponentProps, withRouter} from 'react-router-dom';
 import {useAppSelector} from '../app/hooks';
-import Footer from '../components/Footer';
 import Header from '../components/Header';
-import Main from '../components/Main';
+import HistoryResponse from '../components/HistoryResponse';
+import ResponseComponent from '../components/ResponseComponent';
 import {WrapperConsole} from '../style/components/Console';
 
 const Console: React.FunctionComponent<RouteComponentProps> = ({history}) => {
-  const {sessionKey} = useAppSelector((state) => state.auth);
-
-  const [send, setSend] = useState(false);
-  const [format, setFormat] = useState(false);
+  const sessionKey = useAppSelector((state) => state.auth.sessionKey);
 
   useEffect(() => {
     if (sessionKey) {
@@ -23,8 +20,8 @@ const Console: React.FunctionComponent<RouteComponentProps> = ({history}) => {
   return (
     <WrapperConsole>
       <Header />
-      <Main send={send} format={format} setSend={setSend} setFormat={setFormat}/>
-      <Footer setSend={setSend} setFormat={setFormat} />
+      <HistoryResponse />
+      <ResponseComponent/>
     </WrapperConsole>
   );
 };
