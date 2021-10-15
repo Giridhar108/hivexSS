@@ -1,14 +1,7 @@
 import {createSlice, PayloadAction} from '@reduxjs/toolkit';
+import { Iauth } from '../../types/types';
 
-export interface auth {
-  loading: boolean;
-  sessionKey: string | null;
-  login: string | null;
-  sublogin: string | null;
-  status: {status?: 'idle'; id?: ''; explain?: ''};
-}
-
-export const initialState: auth = {
+export const initialState: Iauth = {
   loading: false,
   sessionKey: null,
   login: null,

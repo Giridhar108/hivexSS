@@ -1,9 +1,5 @@
 import {useState} from 'react';
-
-interface useOpenFullScreenOutput {
-  fullScreen: boolean;
-  openFullScreen: () => void;
-}
+import { useOpenFullScreenOutput } from '../types/types';
 
 function useOpenFullScreen(): useOpenFullScreenOutput {
   const [fullScreen, setFullScreen] = useState(false);

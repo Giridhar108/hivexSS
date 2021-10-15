@@ -1,13 +1,9 @@
-import React, {Dispatch, SetStateAction} from 'react';
+import React from 'react';
 import {FOOTER_FORMAT, FOOTER_SEND, LOGIN_PAGE_LINKTOGITHAB} from '../constants/variables';
 import {FooterConsole, Format, FormatInner, LinkToGithabFooter} from '../style/components/FooterConsole';
 import {Button} from '../style/components/LoginPage';
 import {formatSvg} from '../svg/formatSvg';
-
-export interface Ifooter {
-  setSend: Dispatch<SetStateAction<boolean>>;
-  setFormat: Dispatch<SetStateAction<boolean>>;
-}
+import { Ifooter } from '../types/types';
 
 function Footer({ setSend, setFormat }: Ifooter) {
 
