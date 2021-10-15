@@ -28,7 +28,7 @@ function Header() {
       </Sides>
       <Sides>
         <UserInfo>
-          {login} {sublogin ? `<span> : </span> ${sublogin}` : null}
+          {login} {sublogin ? <span> : </span> : null} {sublogin ? sublogin : null}
         </UserInfo>
         <Logout onClick={handleLogout}>
           <span>{CONSOLE_EXIT}</span>

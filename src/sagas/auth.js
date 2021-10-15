@@ -22,7 +22,7 @@ export function* authenticateSaga({payload}) {
     yield api.sendsay
       .login({
         login: payload.login,
-        sublogin: payload.sublogin,
+        // sublogin: payload.sublogin,
         password: payload.password,
       })
       .then(() => {
