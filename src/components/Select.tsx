@@ -8,7 +8,7 @@ import {Iselect} from '../types/types';
 
 function Select({select, setSelect, el, i}: Iselect) {
   const dispatch = useAppDispatch();
-  const {oneQuery} = useAppSelector((state) => state.query);
+  const oneQuery = useAppSelector((state) => state.query.oneQuery);
 
   const handleSetSelect = (type?: string) => {
     setSelect(false);
@@ -19,6 +19,9 @@ function Select({select, setSelect, el, i}: Iselect) {
     if (type === 'Выполнить') {
       console.log(el)
       dispatch({type: ActionTypes.QUERY, payload: {request: JSON.parse(el?.text), type: 'history'}})
+    }
+    if (type === 'Скопировать') {
+      navigator.clipboard.writeText(oneQuery.text)
     }
   };
 

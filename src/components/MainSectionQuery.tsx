@@ -10,7 +10,7 @@ import {Imain} from '../types/types';
 
 function MainSectionQuery({send, format, setSend, setFormat}: Imain) {
   const dispatch = useAppDispatch();
-  const {oneQuery} = useAppSelector((state) => state.query);
+  const oneQuery = useAppSelector((state) => state.query.oneQuery);
 
   const [clear, setclear] = React.useState(false);
   const [errorQuery, setErrorQuery] = React.useState(false);

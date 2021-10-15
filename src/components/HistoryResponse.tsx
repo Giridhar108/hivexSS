@@ -10,7 +10,7 @@ import {deleteHistorySvg} from '../svg/deleteHistorySvg';
 import OneHistoryItem from './OneHistoryItem';
 
 function HistoryResponse() {
-  const {lineQuery} = useAppSelector((state) => state.query);
+  const lineQuery = useAppSelector((state) => state.query.lineQuery);
   const scrollRef = useHorizontalScroll();
 
   return (
