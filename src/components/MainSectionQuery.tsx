@@ -1,7 +1,7 @@
 import React, {useEffect} from 'react';
 import {useAppDispatch, useAppSelector} from '../app/hooks';
 import {ActionTypes} from '../constants/sagaActions';
-import {MAIN_QUERY, MAIN_RESPONSE} from '../constants/variables';
+import {description, MAIN_QUERY, MAIN_RESPONSE} from '../constants/variables';
 import {isJsonString} from '../helpers/isJsonString';
 import {UseFormField} from '../hooks/useFormField';
 import {Label, SectionQuery, Spliter, Textarea, WrapperColumn} from '../style/components/MainConsole';
@@ -36,7 +36,7 @@ function MainSectionQuery({send, format, setSend, setFormat}: Imain) {
   }, [send, format]);
 
   useEffect(() => {
-    setResponse(oneQuery.response !== '' ? JSON.stringify(JSON.parse(oneQuery.response), null, 3) : '');
+    setResponse(oneQuery.response !== '' ? JSON.stringify(JSON.parse(oneQuery.response), null, 3) : description);
   }, [oneQuery]);
 
   return (
