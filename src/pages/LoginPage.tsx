@@ -23,6 +23,7 @@ import {
   ErrorText,
   Options,
   LinkToGithab,
+  Info,
 } from '../style/components/LoginPage';
 import {
   LOGIN_PAGE_DESCRIPTION_INPUT,
@@ -69,6 +70,7 @@ const LoginPage: React.FunctionComponent<RouteComponentProps> = ({history}) => {
 
   return (
     <Wrapper>
+      <Info>Логин: pentagram777@mail.ru Пароль: 12345678Qw</Info>
       <FormInner>
         <LogoStyled src="/icons/logo.svg" alt="logo" />
         <Title>{APPLICATION_NAME}</Title>

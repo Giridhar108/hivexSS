@@ -62,7 +62,6 @@ export const DeleteItemHistory = styled.button`
   border: none;
   border-left: 1px solid#C4C4C4;
   background: transparent;
-  cursor: pointer;
 `;
 
 export const SvgHistory = styled.div`

@@ -31,11 +31,17 @@ const blur = keyframes`
 }`;
 
 export const Wrapper = styled.div`
+  position: relative;
   height: 100vh;
   display: flex;
   align-items: center;
   justify-content: center;
   flex-direction: column;
+`;
+
+export const Info = styled.div`
+  position: absolute;
+  top: 0;
 `;
 
 export const FormInner = styled.section`
